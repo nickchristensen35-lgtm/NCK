@@ -51,7 +51,7 @@ const NAV: NavItem[] = [
 
 const dropdownVariants = {
   hidden: { opacity: 0, y: 6, scale: 0.97 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.18, ease: [0.16, 1, 0.3, 1] } },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.18, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
   exit:    { opacity: 0, y: 4, scale: 0.98, transition: { duration: 0.12 } },
 };
 
@@ -62,7 +62,7 @@ const itemVariants = {
 
 const mobileMenuVariants = {
   hidden:  { opacity: 0, height: 0 },
-  visible: { opacity: 1, height: 'auto', transition: { duration: 0.28, ease: [0.16, 1, 0.3, 1] } },
+  visible: { opacity: 1, height: 'auto', transition: { duration: 0.28, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
   exit:    { opacity: 0, height: 0, transition: { duration: 0.18 } },
 };
 
