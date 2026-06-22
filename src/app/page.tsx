@@ -10,6 +10,7 @@ import {
   BookOpen, Calculator, Play,
 } from "lucide-react";
 import { InstagramIcon, FacebookIcon } from "@/components/SocialIcons";
+import { getContent } from "@/lib/content";
 
 const InstagramSlider = dynamic(() => import("@/components/InstagramSlider"), { ssr: false });
 const TestimonialSlider = dynamic(() => import("@/components/TestimonialSlider"), { ssr: false });
@@ -21,14 +22,15 @@ const CHECK = (
   </svg>
 );
 
-export default function Home() {
+export default async function Home() {
+  const content = await getContent();
   return (
     <div className="bg-white text-gray-900">
 
       <SiteHeader />
 
       {/* ── HERO ── */}
-      <CreativeAgencyHero />
+      <CreativeAgencyHero content={content} />
 
       {/* ── STATS BAR ── */}
       <section className="bg-gray-900 text-white py-6">
@@ -461,18 +463,18 @@ export default function Home() {
                 {[
                   { icon: <Phone className="w-5 h-5 text-red-600"/>, label: "Phone", content: (
                     <>
-                      <a href="tel:0475517995" className="text-gray-600 text-sm hover:text-red-600 transition-colors block">Georgie: 0475 517 995</a>
-                      <a href="tel:0412300490" className="text-gray-600 text-sm hover:text-red-600 transition-colors block">Louise: 0412 300 490</a>
+                      <a href={`tel:${content.contact_georgie.replace(/\s/g,'')}`} className="text-gray-600 text-sm hover:text-red-600 transition-colors block">Georgie: {content.contact_georgie}</a>
+                      <a href={`tel:${content.contact_louise.replace(/\s/g,'')}`} className="text-gray-600 text-sm hover:text-red-600 transition-colors block">Louise: {content.contact_louise}</a>
                     </>
                   )},
                   { icon: <Mail className="w-5 h-5 text-red-600"/>, label: "Email", content: (
-                    <a href="mailto:hello@norwoodcommercialkitchen.com.au" className="text-gray-600 text-sm hover:text-red-600 transition-colors">
-                      hello@norwoodcommercialkitchen.com.au
+                    <a href={`mailto:${content.contact_email}`} className="text-gray-600 text-sm hover:text-red-600 transition-colors">
+                      {content.contact_email}
                     </a>
                   )},
                   { icon: <MapPin className="w-5 h-5 text-red-600"/>, label: "Address", content: (
                     <div>
-                      <p className="text-gray-600 text-sm">59 Queen Street<br/>Norwood, South Australia 5067</p>
+                      <p className="text-gray-600 text-sm">{content.contact_address}<br/>{content.contact_suburb}</p>
                       <a
                         href="https://www.google.com/maps?rlz=1C5GCEM_enAU1105AU1106&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8MgYIAhBFGDwyBggDEEUYPNIBBzE5NGowajSoAgCwAgE&um=1&ie=UTF-8&fb=1&gl=au&sa=X&geocode=KdsFlA_7ybBqMcLuasoA6XDw&daddr=59+Queen+St,+Norwood+SA+5067"
                         target="_blank"

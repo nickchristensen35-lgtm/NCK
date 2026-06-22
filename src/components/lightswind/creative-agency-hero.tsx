@@ -3,8 +3,22 @@
 import React from 'react';
 import { Play, ChevronRight, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { SiteContent, DEFAULTS } from '@/lib/content';
 
-export default function CreativeAgencyHero() {
+interface Props {
+  content?: Partial<SiteContent>;
+}
+
+export default function CreativeAgencyHero({ content = {} }: Props) {
+  const c = { ...DEFAULTS, ...content };
+
+  const stats = [
+    { value: c.hero_stat1_value, unit: '', label: c.hero_stat1_label },
+    { value: c.hero_stat2_value, unit: '', label: c.hero_stat2_label },
+    { value: c.hero_stat3_value, unit: '', label: c.hero_stat3_label },
+    { value: c.hero_stat4_value, unit: '', label: c.hero_stat4_label },
+  ];
+
   return (
     <section
       id="home"
@@ -31,63 +45,56 @@ export default function CreativeAgencyHero() {
         </video>
       </div>
 
-      {/* Gradient overlay — darker left for text, lighter right */}
+      {/* Gradient overlay */}
       <div
         className="absolute inset-0"
         style={{
           zIndex: 1,
-          background:
-            'linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.18) 100%)',
+          background: 'linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.18) 100%)',
         }}
       />
 
       {/* Bottom vignette */}
       <div
         className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
-        style={{
-          zIndex: 2,
-          background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%)',
-        }}
+        style={{ zIndex: 2, background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%)' }}
       />
 
       {/* Main content */}
       <div className="relative flex-1 flex flex-col justify-between max-w-7xl mx-auto w-full px-6 lg:px-10 pt-24 pb-10" style={{ zIndex: 3 }}>
 
-        {/* Hero copy */}
         <div className="flex-1 flex flex-col justify-center max-w-xl lg:max-w-2xl">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
             className="text-red-400 font-semibold text-xs tracking-[0.22em] uppercase mb-5"
           >
-            Commercial Kitchen Hire · Adelaide, SA
+            {c.hero_label}
           </motion.p>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.7, delay: 0.08, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
             className="text-4xl sm:text-5xl lg:text-[3.4rem] xl:text-6xl font-extrabold text-white leading-[1.05] tracking-tight mb-6"
           >
-            Build your wildly<br />
-            <span className="text-red-400">successful</span><br />
-            food business
+            {c.hero_headline}
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6, delay: 0.18, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
             className="text-white/65 text-sm sm:text-base leading-relaxed mb-8 max-w-md"
           >
-            Adelaide&apos;s premier commercial kitchen hire — fully equipped, council-approved, and ready when you are. No lock-in contracts. No overheads.
+            {c.hero_subtitle}
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.26, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6, delay: 0.26, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
             className="flex flex-col sm:flex-row gap-3"
           >
             <a
@@ -110,29 +117,24 @@ export default function CreativeAgencyHero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.38 }}
-            href="https://www.google.com/maps?rlz=1C5GCEM_enAU1105AU1106&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8MgYIAhBFGDwyBggDEEUYPNIBBzE5NGowajSoAgCwAgE&um=1&ie=UTF-8&fb=1&gl=au&sa=X&geocode=KdsFlA_7ybBqMcLuasoA6XDw&daddr=59+Queen+St,+Norwood+SA+5067"
+            href="https://www.google.com/maps?daddr=59+Queen+St,+Norwood+SA+5067"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 mt-5 text-white/40 hover:text-white/70 text-xs transition-colors w-fit"
           >
             <MapPin className="w-3 h-3" />
-            59 Queen Street, Norwood SA
+            {c.contact_address}, {c.contact_suburb}
           </motion.a>
         </div>
 
-        {/* Stats bar at bottom */}
+        {/* Stats bar */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, delay: 0.45, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
           className="flex flex-wrap gap-x-8 gap-y-4 pt-8 border-t border-white/15 mt-8"
         >
-          {[
-            { value: '$45', unit: '/hr + GST', label: 'Kitchen hire rate' },
-            { value: '24/7', unit: '', label: 'Access during sessions' },
-            { value: 'Min 3hr', unit: '', label: 'No lock-in contracts' },
-            { value: '100%', unit: '', label: 'Council-approved' },
-          ].map((stat) => (
+          {stats.map((stat) => (
             <div key={stat.label} className="flex flex-col">
               <p className="text-white font-extrabold text-xl sm:text-2xl leading-none">
                 {stat.value}<span className="text-white/50 text-sm font-normal">{stat.unit}</span>
