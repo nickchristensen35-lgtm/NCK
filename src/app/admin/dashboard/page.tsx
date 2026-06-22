@@ -49,14 +49,15 @@ const FIELDS: { section: string; fields: { key: keyof SiteContent; label: string
   {
     section: 'FAQ',
     fields: [
-      { key: 'faq_1_q', label: 'Question 1' },
-      { key: 'faq_1_a', label: 'Answer 1', multiline: true },
-      { key: 'faq_2_q', label: 'Question 2' },
-      { key: 'faq_2_a', label: 'Answer 2', multiline: true },
-      { key: 'faq_3_q', label: 'Question 3' },
-      { key: 'faq_3_a', label: 'Answer 3', multiline: true },
-      { key: 'faq_4_q', label: 'Question 4' },
-      { key: 'faq_4_a', label: 'Answer 4', multiline: true },
+      { key: 'faq_1_q', label: 'Question 1' }, { key: 'faq_1_a', label: 'Answer 1', multiline: true },
+      { key: 'faq_2_q', label: 'Question 2' }, { key: 'faq_2_a', label: 'Answer 2', multiline: true },
+      { key: 'faq_3_q', label: 'Question 3' }, { key: 'faq_3_a', label: 'Answer 3', multiline: true },
+      { key: 'faq_4_q', label: 'Question 4' }, { key: 'faq_4_a', label: 'Answer 4', multiline: true },
+      { key: 'faq_5_q', label: 'Question 5' }, { key: 'faq_5_a', label: 'Answer 5', multiline: true },
+      { key: 'faq_6_q', label: 'Question 6' }, { key: 'faq_6_a', label: 'Answer 6', multiline: true },
+      { key: 'faq_7_q', label: 'Question 7' }, { key: 'faq_7_a', label: 'Answer 7', multiline: true },
+      { key: 'faq_8_q', label: 'Question 8' }, { key: 'faq_8_a', label: 'Answer 8', multiline: true },
+      { key: 'faq_9_q', label: 'Question 9' }, { key: 'faq_9_a', label: 'Answer 9', multiline: true },
     ],
   },
 ];

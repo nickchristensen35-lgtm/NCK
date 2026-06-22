@@ -422,7 +422,7 @@ export default async function Home() {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Frequently Asked Questions</h2>
             <p className="text-gray-500 mt-4">Everything you need to know about renting Norwood Commercial Kitchen.</p>
           </div>
-          <FAQAccordion />
+          <FAQAccordion content={content} />
           <div className="mt-10 text-center">
             <p className="text-gray-500 text-sm mb-4">Still have questions? We'd love to hear from you.</p>
             <a href="#contact" className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors duration-200 text-sm">
