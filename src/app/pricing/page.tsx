@@ -4,8 +4,16 @@ import SiteHeader from '@/components/SiteHeader';
 import { InstagramIcon, FacebookIcon } from '@/components/SocialIcons';
 
 export const metadata: Metadata = {
-  title: 'Pricing | Norwood Commercial Kitchen',
-  description: 'Transparent commercial kitchen hire rates from $45/hr. No lock-in contracts, no hidden fees. Council-approved kitchen in Norwood, Adelaide SA.',
+  title: 'Pricing — Commercial Kitchen Hire from $45/hr',
+  description: 'Commercial kitchen hire in Norwood, Adelaide from $45/hr + GST. Minimum 3-hour booking. No lock-in contracts, no hidden fees. All equipment included — UNOX combi oven, bratt pan, blast chiller, walk-in coolroom and more.',
+  alternates: {
+    canonical: 'https://norwoodcommercialkitchen.com.au/pricing',
+  },
+  openGraph: {
+    title: 'Commercial Kitchen Hire Pricing Adelaide | From $45/hr',
+    description: 'Hire a fully equipped commercial kitchen in Norwood from $45/hr. All equipment included, no lock-in contracts, 24/7 access.',
+    url: 'https://norwoodcommercialkitchen.com.au/pricing',
+  },
 };
 
 const INCLUDED = [
