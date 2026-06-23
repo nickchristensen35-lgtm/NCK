@@ -36,6 +36,9 @@ export const metadata: Metadata = {
     "59 Queen Street Norwood kitchen",
     "Adelaide eastern suburbs commercial kitchen",
   ],
+  verification: {
+    google: "TIOwJSLHAN8xS_VxgDC9khcKKPfAO04Ea-HnUZMXJUg",
+  },
   authors: [{ name: "Norwood Commercial Kitchen" }],
   creator: "Norwood Commercial Kitchen",
   publisher: "Norwood Commercial Kitchen",
